@@ -1,6 +1,6 @@
 # GuideDog: A Real-World Egocentric Multimodal Dataset for Blind and Low-Vision Accessibility-Aware Guidance
 
-<p align="left">
+<p align="left" style="text-align: center;">
     <a href='https://junhyeok.kim/' target='_blank'>Junhyeok Kim</a>&emsp;
     Jaewoo Park&emsp;
     Junhee Park&emsp;
