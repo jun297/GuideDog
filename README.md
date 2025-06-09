@@ -11,7 +11,7 @@
     <a href='https://mirlab.yonsei.ac.kr/' target='_blank'>Youngjae Yu</a>
 </p>
 
-[![arXiv](https://img.shields.io/badge/arXiv-Coming%20Soon-b31b1b.svg)](https://arxiv.org/abs/2503.12844)
+![arXiv](https://img.shields.io/badge/arXiv-2503.12844-b31b1b.svg)
 [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-Coming%20Soon-FFD21E)](https://huggingface.co/datasets/placeholder)
 
 <br>
