@@ -1,13 +1,13 @@
 # GuideDog: A Real-World Egocentric Multimodal Dataset for Blind and Low-Vision Accessibility-Aware Guidance
 
-<p align="left" style="text-align: center;">
+<p align="left">
     <a href='https://junhyeok.kim/' target='_blank'>Junhyeok Kim</a>&emsp;
-    Jaewoo Park&emsp;
-    Junhee Park&emsp;
-    Sangeyl Lee&emsp;
-    <a href='https://jiwanchung.github.io/' target='_blank'>Jiwan Chung</a>&emsp;
-    Jisung Kim&emsp;
-    Ji Hoon Joung&emsp;
+    Jaewoo Park&ensp;
+    Junhee Park&ensp;
+    Sangeyl Lee&ensp; 
+    <a href='https://jiwanchung.github.io/' target='_blank'>Jiwan Chung</a>&ensp;
+    Jisung Kim&ensp;
+    Ji Hoon Joung&ensp;
     <a href='https://mirlab.yonsei.ac.kr/' target='_blank'>Youngjae Yu</a>
 </p>
 
