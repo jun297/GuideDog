@@ -1,0 +1,42 @@
+# GuideDog: A Real-World Egocentric Multimodal Dataset for Blind and Low-Vision Accessibility-Aware Guidance
+
+<p align="left">
+    <a href='https://junhyeok.kim/' target='_blank'>Junhyeok Kim</a>*&emsp;
+    <a href='https://jerife.org/cv' target='_blank'>Jaewoo Park</a>*&ensp;
+    Junhee Park&ensp;
+    Sangeyl Lee&ensp;
+    <a href='https://jiwanchung.github.io/' target='_blank'>Jiwan Chung</a>&ensp;
+    Jisung Kim&ensp;
+    Ji Hoon Joung&ensp;
+    Youngjae Yu
+</p>
+
+<p align="left"><sub>* Equal contribution</sub></p>
+
+![arXiv](https://img.shields.io/badge/arXiv-2503.12844-b31b1b.svg)
+[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-Coming%20Soon-FFD21E)](https://huggingface.co/datasets/placeholder)
+
+<br>
+
+## Under Construction 🚧
+
+We are currently preparing the dataset and code for public release. We appreciate your patience!
+
+
+<p align="center">
+  <img src="assets/figure.png">
+</p>
+
+
+## Citation
+```
+@misc{kim2025guidedogrealworldegocentricmultimodal,
+      title={GuideDog: A Real-World Egocentric Multimodal Dataset for Blind and Low-Vision Accessibility-Aware Guidance}, 
+      author={Junhyeok Kim and Jaewoo Park and Junhee Park and Sangeyl Lee and Jiwan Chung and Jisung Kim and Ji Hoon Joung and Youngjae Yu},
+      year={2025},
+      eprint={2503.12844},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2503.12844}, 
+}
+```
