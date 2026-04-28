@@ -1,0 +1,24 @@
+dataset_path: kjunh/GuideDog
+dataset_kwargs:
+  name: object
+  token: True
+task: "guidedog_object"
+test_split: train
+output_type: generate_until
+doc_to_visual: !function utils.guidedog_object_doc_to_visual
+doc_to_text: !function utils.guidedog_object_doc_to_text
+doc_to_target: "answer"
+generation_kwargs:
+  max_new_tokens: 2
+  min_new_tokens: 2 # token_len("A.") = 2
+  temperature: 0
+  top_p: 1.0
+  num_beams: 1
+  do_sample: false
+process_results: !function utils.guidedog_object_process_result
+metric_list:
+  - metric: accuracy
+    aggregation: !function utils.guidedog_object_aggregation_result
+    higher_is_better: true
+metadata:
+  - version: 0.0

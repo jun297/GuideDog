@@ -1,0 +1,33 @@
+# GuideDog Docker Environment
+#
+# Setup:
+#   cp .env.example .env   # edit paths for your server
+#   docker compose build
+#   docker compose run guidedog huggingface-cli login
+#
+# Usage:
+#   docker compose run guidedog bash                          # interactive shell
+#   docker compose run guidedog python -m lmms_eval ...       # model evaluation
+
+services:
+  guidedog:
+    build: .
+    volumes:
+      - .:/workspace
+      - ${DATASET_DIR:-./data}:/data
+      - ${HF_CACHE:-~/.cache/huggingface}:/root/.cache/huggingface
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES:-all}
+      - HF_HUB_ENABLE_HF_TRANSFER=0
+      - HF_HOME=/root/.cache/huggingface
+      - HF_TOKEN=${HF_TOKEN:-}
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

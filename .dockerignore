@@ -1,0 +1,12 @@
+.git
+__pycache__
+*.pyc
+*.pyo
+logs/
+wandb/
+*.egg-info
+dist/
+build/
+.env
+distribution_analysis/runs/*/
+!distribution_analysis/runs/run_001/

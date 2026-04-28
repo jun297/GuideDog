@@ -1,0 +1,55 @@
+dataset_path: kjunh/GuideDog
+dataset_kwargs:
+  token: True
+task: "guidedog_socratic_0shot"
+test_split: "gold"
+output_type: generate_until
+doc_to_visual: !function utils.guidedog_doc_to_visual
+doc_to_text: !function utils.guidedog_socratic_doc_to_text
+doc_to_target: "gold_label"
+generation_kwargs:
+  max_new_tokens: 2048
+  temperature: 0
+  top_p: 1.0
+  num_beams: 1
+  do_sample: false
+process_results: !function utils.guidedog_process_result
+metric_list:
+  - metric: Rouge_1
+    aggregation : !function utils.guidedog_rouge1
+    higher_is_better : true
+  - metric: Rouge_2
+    aggregation : !function utils.guidedog_rouge2
+    higher_is_better : true
+  - metric: Rouge_L
+    aggregation : !function utils.guidedog_rougeL
+    higher_is_better : true
+  - metric: Rouge_Lsum
+    aggregation : !function utils.guidedog_rougeLsum
+    higher_is_better : true
+  - metric: Bleu
+    aggregation : !function utils.guidedog_bleu
+    higher_is_better : true
+  - metric: Meteor
+    aggregation : !function utils.guidedog_meteor
+    higher_is_better : true
+  - metric: BertScore_precision
+    aggregation : !function utils.guidedog_rougeL
+    higher_is_better : true
+  - metric: BertScore_recall
+    aggregation : !function utils.guidedog_bertscore_recall
+    higher_is_better : true
+  - metric: BertScore_f1
+    aggregation : !function utils.guidedog_bertscore_f1
+    higher_is_better : true
+  # - metric: guidedog_TFIDF
+  #   aggregation : !function utils.guidedog_tfidf
+  #   higher_is_better : true
+  - metric: GPTScore
+    aggregation : !function utils.guidedog_gptscore
+    higher_is_better : true
+lmms_eval_specific_kwargs:
+  default:
+    fewshot_num_examples: 0
+metadata:
+  - version: 0.0

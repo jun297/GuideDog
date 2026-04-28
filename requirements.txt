@@ -1,0 +1,11 @@
+# All runtime dependencies are declared in pyproject.toml.
+# Install with:
+#
+#     pip install -e .
+#
+# Optional model/metric extras (see pyproject.toml [project.optional-dependencies]):
+#
+#     pip install -e ".[qwen]"      # Qwen-VL utils
+#     pip install -e ".[gemini]"    # Gemini API
+#     pip install -e ".[metrics]"   # extra text metrics (rouge, anls, levenshtein, ...)
+#     pip install -e ".[all]"       # everything above

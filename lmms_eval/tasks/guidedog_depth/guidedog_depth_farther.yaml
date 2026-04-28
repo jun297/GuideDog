@@ -1,0 +1,27 @@
+dataset_path: kjunh/GuideDog
+dataset_kwargs:
+  name: depth
+  token: True
+task: "guidedog_depth_farther"
+test_split: train
+output_type: generate_until
+doc_to_visual: !function utils.guidedog_depth_doc_to_visual
+doc_to_text: !function utils.guidedog_depth_doc_to_text
+doc_to_target: !function utils.guidedog_depth_farther_doc_to_target
+generation_kwargs:
+  max_new_tokens: 2
+  min_new_tokens: 2 # token_len("A.") = 2
+  temperature: 0
+  top_p: 1.0
+  num_beams: 1
+  do_sample: false
+process_results: !function utils.guidedog_depth_farther_process_result
+metric_list:
+  - metric: accuracy
+    aggregation: !function utils.guidedog_depth_aggregation_result
+    higher_is_better: true
+lmms_eval_specific_kwargs:
+  default:
+    distance: "farther"
+metadata:
+  - version: 0.0
