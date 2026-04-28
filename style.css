@@ -1,0 +1,440 @@
+:root {
+  --ink: #1a1a1a;
+  --paper: #fdfdfc;
+  --muted: #555;
+  --rule: #e5e3de;
+  --code-bg: #f5f4f0;
+
+  /* Accent palette — swap --link to change identity color. */
+  --accent-royal: #1e3a8a;    /* deep royal blue (current) */
+  --accent-yonsei: #003876;   /* Yonsei navy */
+  --accent-pure-royal: #4169E1; /* web royalblue */
+  --accent-oxblood: #7a1f1f;  /* original */
+  --link: var(--accent-oxblood);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Crimson Pro", Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* oldstyle figures in body — proportional, characterful */
+  font-feature-settings: "onum", "kern", "liga";
+  /* very subtle paper grain */
+  background-image:
+    radial-gradient(rgba(26, 26, 26, 0.018) 1px, transparent 1px),
+    radial-gradient(rgba(26, 26, 26, 0.012) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+main.page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem 6rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 0.6rem;
+}
+
+h2 {
+  font-size: 1.22rem;
+  font-weight: 600;
+  margin: 2.6rem 0 0.7rem;
+  letter-spacing: -0.01em;
+}
+/* small ornament — a thin oxblood tick before each section header */
+section > h2::before {
+  content: "";
+  display: inline-block;
+  width: 0.7em;
+  height: 1px;
+  background: var(--link);
+  vertical-align: 0.32em;
+  margin-right: 0.55em;
+  opacity: 0.85;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--link) 30%, transparent);
+}
+
+a:hover {
+  border-bottom-color: var(--link);
+}
+
+.title-block {
+  margin-bottom: 2.5rem;
+}
+
+.title-block .venue {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.8rem;
+}
+
+.title-block .authors {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 0.4rem 0 0.2rem;
+  line-height: 1.55;
+}
+
+.title-block .authors a {
+  border-bottom: none;
+}
+.title-block .authors a:hover {
+  border-bottom: 1px solid var(--link);
+}
+
+.title-block .authors sup,
+.title-block .affiliations sup,
+.title-block .note sup {
+  font-size: 0.7em;
+}
+
+.title-block .affiliations {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--muted);
+  margin: 0.3rem 0 0.2rem;
+}
+
+.title-block .note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.title-block .links {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* gist — single sentence, set apart */
+.gist {
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: #2a2a2a;
+  border-left: 2px solid var(--link);
+  padding: 0.1rem 0 0.1rem 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+/* breakout figures — wider than text column on large screens */
+figure.wide,
+figure.medium {
+  width: calc(100vw - 2.5rem);
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+figure.wide { max-width: 920px; }
+figure.medium { max-width: 780px; }
+figure.wide img,
+figure.medium img {
+  margin: 0 auto;
+}
+figure.wide figcaption,
+figure.medium figcaption {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 920px) {
+  figure.wide {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+}
+@media (max-width: 780px) {
+  figure.medium {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+}
+
+/* stats strip */
+.stats {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1rem 0;
+}
+.stats li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.stats .num {
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--ink);
+  /* lining + tabular for stat-strip numbers */
+  font-feature-settings: "lnum", "tnum";
+  letter-spacing: -0.005em;
+}
+.stats .lbl {
+  font-size: 0.86rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}
+@media (max-width: 640px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* comparison table — breaks out of the text column on wide screens */
+.table-wrap {
+  max-width: 860px;
+  width: calc(100vw - 2.5rem);
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 1rem;
+  margin-bottom: 2.4rem;
+}
+@media (max-width: 860px) {
+  .table-wrap {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+}
+table.comparison {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  font-feature-settings: "lnum", "tnum";
+}
+table.comparison th,
+table.comparison td {
+  text-align: left;
+  padding: 0.7rem 0.7rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  line-height: 1.45;
+}
+table.comparison th {
+  font-weight: 600;
+  border-bottom: 1px solid var(--ink);
+  color: var(--ink);
+  font-size: 0.92rem;
+  letter-spacing: 0.005em;
+  padding-bottom: 0.55rem;
+}
+table.comparison tr.ours {
+  background: color-mix(in srgb, var(--link) 6%, transparent);
+}
+table.comparison tr.ours td {
+  border-bottom-color: color-mix(in srgb, var(--link) 35%, var(--rule));
+}
+
+/* card layout below tablet — each row becomes a stacked block */
+@media (max-width: 640px) {
+  table.comparison,
+  table.comparison thead,
+  table.comparison tbody,
+  table.comparison tr,
+  table.comparison th,
+  table.comparison td {
+    display: block;
+  }
+  table.comparison thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  table.comparison tr {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0.55rem 0.85rem 0.7rem;
+    margin-bottom: 0.7rem;
+    background: var(--paper);
+  }
+  table.comparison tr.ours {
+    border-color: color-mix(in srgb, var(--link) 50%, var(--rule));
+    background: color-mix(in srgb, var(--link) 6%, transparent);
+  }
+  table.comparison td {
+    padding: 0.18rem 0;
+    border: 0;
+    font-size: 0.88rem;
+    display: flex;
+    gap: 0.7em;
+  }
+  table.comparison td::before {
+    content: attr(data-label);
+    flex: 0 0 7em;
+    color: var(--muted);
+    font-style: italic;
+    font-size: 0.78rem;
+    line-height: 1.6;
+  }
+  /* the dataset name gets its own emphasis as the card header */
+  table.comparison td:first-child {
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  table.comparison td:first-child::before {
+    display: none;
+  }
+  table.comparison tr.ours td:first-child {
+    border-bottom-color: color-mix(in srgb, var(--link) 35%, var(--rule));
+  }
+}
+
+/* standards callout — echoes paper's tcolorbox */
+.standards-box {
+  border: 1px solid color-mix(in srgb, var(--link) 35%, var(--rule));
+  background: color-mix(in srgb, var(--link) 4%, var(--paper));
+  padding: 0.9rem 1.1rem 0.6rem;
+  border-radius: 3px;
+  margin: 1rem 0 1.5rem;
+}
+.standards-box p {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+}
+.standards-box .s {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--link);
+  min-width: 1.7em;
+}
+
+/* findings callout */
+.findings-box {
+  margin: 1rem 0 1.2rem;
+}
+.findings-box p {
+  margin: 0 0 0.7rem;
+}
+.takeaway {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--ink);
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+  margin-top: 1.2rem;
+}
+
+figure {
+  margin: 2rem 0;
+}
+
+figcaption {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 0.7rem;
+  text-align: left;
+}
+
+pre {
+  font-family: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  background: var(--code-bg);
+  color: var(--ink);
+  padding: 1rem 1.1rem;
+  border-radius: 2px;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0.6rem 0 0;
+}
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.8rem;
+  color: #777;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 17px;
+  }
+  main.page {
+    padding: 2.5rem 1.1rem 4rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.1rem;
+    margin-top: 2.2rem;
+  }
+  .gist {
+    font-size: 1.05rem;
+    padding-left: 0.85rem;
+  }
+  .title-block .authors {
+    font-size: 0.92rem;
+  }
+  .standards-box {
+    padding: 0.75rem 0.9rem 0.5rem;
+  }
+  .standards-box p {
+    font-size: 0.92rem;
+  }
+  .findings-box p {
+    font-size: 0.95rem;
+  }
+  .takeaway {
+    font-size: 1rem;
+  }
+  pre {
+    font-size: 0.72rem;
+  }
+}

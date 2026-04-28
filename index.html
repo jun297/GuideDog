@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GuideDog — A Real-World Egocentric Multimodal Dataset for BLV Accessibility-Aware Guidance</title>
+  <meta name="description" content="GuideDog: 22K real-world pedestrian images annotated with BLV accessibility-aware guidance, plus an 818-sample QA benchmark. ACL 2026.">
+
+  <!-- Social previews -->
+  <meta property="og:title" content="GuideDog (ACL 2026)">
+  <meta property="og:description" content="A real-world egocentric multimodal dataset for blind and low-vision accessibility-aware guidance.">
+  <meta property="og:image" content="https://jun297.github.io/GuideDog/assets/teaser.png">
+  <meta property="og:url" content="https://jun297.github.io/GuideDog/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+
+    <!-- TEMPLATE: title block -->
+    <header class="title-block">
+      <p class="venue">ACL 2026 Main</p>
+      <h1>GuideDog: A Real-World Egocentric Multimodal Dataset for Blind and Low-Vision Accessibility-Aware Guidance</h1>
+      <p class="authors">
+        <a href="https://junhyeok.kim/">Junhyeok Kim</a><sup>♣*</sup>
+        <a href="https://jerife.org/cv">Jaewoo Park</a><sup>♣*</sup>
+        Junhee Park<sup>♣</sup>
+        Sangeyl Lee<sup>♣</sup>
+        <a href="https://jiwanchung.github.io/">Jiwan Chung</a><sup>♣</sup>
+        Jisung Kim<sup>♢†</sup>
+        Ji Hoon Joung<sup>♡†</sup>
+        Youngjae Yu<sup>♠</sup>
+      </p>
+      <p class="affiliations">
+        <sup>♣</sup>Yonsei University · <sup>♢</sup>LG AI Research · <sup>♡</sup>Euler Robotics · <sup>♠</sup>Seoul National University
+      </p>
+      <p class="note"><sup>*</sup>Equal contribution &nbsp;·&nbsp; <sup>†</sup>Work done while at SK Telecom</p>
+      <p class="links">
+        <a href="https://arxiv.org/pdf/2503.12844">PDF</a> ·
+        <a href="https://arxiv.org/abs/2503.12844">arXiv</a> ·
+        <a href="https://github.com/jun297/GuideDog">Code</a> ·
+        <a href="https://huggingface.co/datasets/kjunh/GuideDog">Data</a> ·
+        <a href="#bibtex">BibTeX</a>
+      </p>
+    </header>
+
+    <!-- TEMPLATE: gist (one breath) -->
+    <section id="gist">
+      <p class="gist">A 22K real-world pedestrian dataset for BLV navigation, built by having humans <em>verify</em> standards-grounded silver labels instead of writing from scratch — and a benchmark that shows today's MLLMs still struggle with the spatial half of the task.</p>
+    </section>
+
+    <!-- TEMPLATE: teaser figure (the task) -->
+    <figure class="teaser medium">
+      <img src="assets/teaser.png" alt="The accessibility-aware guidance task: an MLLM reads a pedestrian scene and produces an S1 description, S2 obstacle info, and S3 summary direction.">
+      <figcaption><strong>The task.</strong> Given a pedestrian image, an MLLM produces guidance in three parts: <em>S1</em> describe the surroundings, <em>S2</em> identify obstacles with location and proximity, <em>S3</em> summarize a safe direction.</figcaption>
+    </figure>
+
+    <!-- TEMPLATE: stats strip -->
+    <section id="stats">
+      <ul class="stats">
+        <li><span class="num">22,084</span><span class="lbl">image–description pairs</span></li>
+        <li><span class="num">2,106</span><span class="lbl">human-verified gold</span></li>
+        <li><span class="num">818</span><span class="lbl">QA samples</span></li>
+        <li><span class="num">46 / 183</span><span class="lbl">countries / locations</span></li>
+      </ul>
+    </section>
+
+    <!-- TEMPLATE: comparison table -->
+    <section id="compare">
+      <h2>How GuideDog differs from prior BLV datasets</h2>
+      <div class="table-wrap">
+        <table class="comparison">
+          <thead>
+            <tr>
+              <th>Dataset</th>
+              <th>#</th>
+              <th>Modality</th>
+              <th>Source</th>
+              <th>Geo-diverse</th>
+              <th>Annotation</th>
+              <th>BLV involvement</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Dataset">VizWiz</td>
+              <td data-label="#">31K</td>
+              <td data-label="Modality">Image</td>
+              <td data-label="Source">User photos</td>
+              <td data-label="Geo-diverse">—</td>
+              <td data-label="Annotation">Human</td>
+              <td data-label="BLV involvement">Captured by BLV</td>
+              <td data-label="Task">VQA</td>
+            </tr>
+            <tr>
+              <td data-label="Dataset">VIALM</td>
+              <td data-label="#">200</td>
+              <td data-label="Modality">Image</td>
+              <td data-label="Source">Web</td>
+              <td data-label="Geo-diverse">—</td>
+              <td data-label="Annotation">Human</td>
+              <td data-label="BLV involvement">Expert manual</td>
+              <td data-label="Task">Guidance</td>
+            </tr>
+            <tr>
+              <td data-label="Dataset">Merchant et&nbsp;al.</td>
+              <td data-label="#">48</td>
+              <td data-label="Modality">Image</td>
+              <td data-label="Source">VizWiz</td>
+              <td data-label="Geo-diverse">—</td>
+              <td data-label="Annotation">Human</td>
+              <td data-label="BLV involvement">—</td>
+              <td data-label="Task">Guidance</td>
+            </tr>
+            <tr>
+              <td data-label="Dataset">WalkVLM</td>
+              <td data-label="#">12K</td>
+              <td data-label="Modality">Video</td>
+              <td data-label="Source">Web + recorded</td>
+              <td data-label="Geo-diverse">10 locations</td>
+              <td data-label="Annotation">Human</td>
+              <td data-label="BLV involvement">Survey</td>
+              <td data-label="Task">Guidance</td>
+            </tr>
+            <tr>
+              <td data-label="Dataset">EgoBlind</td>
+              <td data-label="#">1.3K</td>
+              <td data-label="Modality">Video</td>
+              <td data-label="Source">Web</td>
+              <td data-label="Geo-diverse">—</td>
+              <td data-label="Annotation">Human + AI</td>
+              <td data-label="BLV involvement">Annotated partial</td>
+              <td data-label="Task">Video QA</td>
+            </tr>
+            <tr class="ours">
+              <td data-label="Dataset"><strong>GuideDog (ours)</strong></td>
+              <td data-label="#"><strong>22K</strong></td>
+              <td data-label="Modality">Image</td>
+              <td data-label="Source">Web</td>
+              <td data-label="Geo-diverse"><strong>183 locations</strong></td>
+              <td data-label="Annotation">Human + AI</td>
+              <td data-label="BLV involvement"><strong>Standards-based</strong></td>
+              <td data-label="Task">Guidance + QA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TEMPLATE: standards callout -->
+    <section id="standards">
+      <h2>Three BLV guidance standards</h2>
+      <p>Distilled from BLV organizations and prior research, then used as the scaffolding for every annotation in the dataset.</p>
+      <div class="standards-box">
+        <p><span class="s">S1</span> Describe the surroundings — orient the user.</p>
+        <p><span class="s">S2</span> Provide obstacle information — type, location, proximity (e.g. <em>"12 o'clock, 4 steps"</em>).</p>
+        <p><span class="s">S3</span> Provide a summary and direction — concise, low cognitive load.</p>
+      </div>
+    </section>
+
+    <!-- TEMPLATE: pipeline figure -->
+    <section id="pipeline">
+      <h2>Verify, don't generate</h2>
+      <p>The construction trick is to flip the human-AI pipeline: an MLLM produces standards-grounded <em>silver</em> labels first; trained annotators then verify and refine them into <em>gold</em>. Verification is much cheaper than free-form annotation, so BLV expertise concentrates where it adds the most value.</p>
+      <figure class="wide">
+        <img src="assets/pipeline.png" alt="Four-stage GuideDog pipeline: scene image collection, scene information extraction, silver label generation, and human verification into gold labels.">
+        <figcaption><strong>Pipeline.</strong> Web-sourced walking videos → balanced frame sampling → standards-grounded silver labels → human verification.</figcaption>
+      </figure>
+    </section>
+
+    <!-- TEMPLATE: data distribution -->
+    <section id="distribution">
+      <h2>Where the data lives</h2>
+      <figure class="wide">
+        <img src="assets/data_distribution.png" alt="World map and bar chart showing the GuideDog sample distribution across 46 countries and 183 cities.">
+        <figcaption><strong>Geographic coverage.</strong> Frames span 183 cities across 46 countries, sampled with per-city/region caps to keep the distribution balanced.</figcaption>
+      </figure>
+    </section>
+
+    <!-- TEMPLATE: example -->
+    <section id="example">
+      <h2>One annotated example</h2>
+      <figure class="medium">
+        <img src="assets/datapoint_gold.png" alt="A GuideDog gold-labeled sample: pedestrian image with S1 surroundings description, S2 obstacle list with positions, and S3 summary direction.">
+        <figcaption><strong>A gold-labeled datapoint.</strong> Each annotation is structured by S1 / S2 / S3 rather than free-form prose.</figcaption>
+      </figure>
+    </section>
+
+    <!-- TEMPLATE: findings -->
+    <section id="findings">
+      <h2>What we found</h2>
+      <div class="findings-box">
+        <p><strong>① GPT-4o leads zero-shot guidance,</strong> with the largest gap on <em>S2</em> — exactly where depth references matter most.</p>
+        <p><strong>② Open-source models recognize objects, proprietary models judge depth.</strong> On QA, several open-source MLLMs <em>cannot beat random chance</em> at depth comparison.</p>
+        <p><strong>③ Fine-tuning closes the gap.</strong> LoRA fine-tuning Qwen2.5-VL on our silver labels gives <strong>+19.3%</strong> on depth comparison while losing only <strong>−1.8%</strong> on object recognition — and tops every model on guidance generation.</p>
+      </div>
+      <p class="takeaway">Spatial understanding — not language — is the bottleneck for BLV-grade MLLM guidance.</p>
+    </section>
+
+    <!-- TEMPLATE: bibtex -->
+    <section id="bibtex">
+      <h2>BibTeX</h2>
+      <pre><code>@inproceedings{kim2026guidedog,
+  title     = {GuideDog: A Real-World Egocentric Multimodal Dataset for
+               Blind and Low-Vision Accessibility-Aware Guidance},
+  author    = {Kim, Junhyeok and Park, Jaewoo and Park, Junhee and
+               Lee, Sangeyl and Chung, Jiwan and Kim, Jisung and
+               Joung, Ji Hoon and Yu, Youngjae},
+  booktitle = {Proceedings of the 64th Annual Meeting of the
+               Association for Computational Linguistics (ACL)},
+  year      = {2026}
+}</code></pre>
+    </section>
+
+    <footer>
+      <p>Project page source on <a href="https://github.com/jun297/GuideDog">GitHub</a>. Template free to fork.</p>
+    </footer>
+
+  </main>
+</body>
+</html>
