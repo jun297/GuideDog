@@ -23,7 +23,7 @@
 
 ## Overview
 
-**GuideDog** is a real-world egocentric multimodal dataset for accessibility-aware guidance for blind and low-vision (BLV) users. The dataset contains **22,084 image–description pairs** (2,106 human-verified *gold* and 19,978 VLM-generated *silver*) collected from real walking videos across diverse cities, plus two derived multiple-choice subsets — **depth** (relative-distance reasoning, 383 questions) and **object** (object-grounded reasoning, 435 questions).
+**GuideDog** is a real-world egocentric multimodal dataset for accessibility-aware guidance for blind and low-vision (BLV) users. The dataset contains **22,084 image-description pairs** (2,106 human-verified *gold* and 19,978 VLM-generated *silver*) collected from real walking videos across diverse cities, plus two derived multiple-choice subsets: **depth** (relative-distance reasoning, 383 questions) and **object** (object-grounded reasoning, 435 questions).
 
 This repository is the **reproduction harness** for the paper. It is a focused fork of [`lmms-eval`](https://github.com/EvolvingLMMs-Lab/lmms-eval) that adds the GuideDog evaluation tasks; everything else in the repo is upstream `lmms-eval`. The companion HuggingFace dataset and this repo are the only artifacts you need to reproduce the paper's eval numbers.
 
@@ -33,8 +33,8 @@ The dataset lives at [`kjunh/GuideDog`](https://huggingface.co/datasets/kjunh/Gu
 
 | Config    | Split  | Rows   | Use                                       |
 |-----------|--------|-------:|-------------------------------------------|
-| `default` | gold   |  2,106 | Human-verified guidance — eval split      |
-| `default` | silver | 19,978 | VLM-generated guidance — training split   |
+| `default` | gold   |  2,106 | Human-verified guidance, eval split       |
+| `default` | silver | 19,978 | VLM-generated guidance, training split    |
 | `depth`   | train  |    383 | Relative-distance MCQA                    |
 | `object`  | train  |    435 | Object-grounded MCQA                      |
 
