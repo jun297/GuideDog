@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GuideDog — A Real-World Egocentric Multimodal Dataset for BLV Accessibility-Aware Guidance</title>
+  <title>GuideDog: A Real-World Egocentric Multimodal Dataset for BLV Accessibility-Aware Guidance</title>
   <meta name="description" content="GuideDog: 22K real-world pedestrian images annotated with BLV accessibility-aware guidance, plus an 818-sample QA benchmark. ACL 2026.">
 
   <!-- Social previews -->
@@ -31,6 +31,7 @@
         <a href="https://jerife.org/cv">Jaewoo Park</a><sup>♣*</sup>
         Junhee Park<sup>♣</sup>
         Sangeyl Lee<sup>♣</sup>
+        <br>
         <a href="https://jiwanchung.github.io/">Jiwan Chung</a><sup>♣</sup>
         Jisung Kim<sup>♢†</sup>
         Ji Hoon Joung<sup>♡†</sup>
@@ -49,15 +50,15 @@
       </p>
     </header>
 
-    <!-- TEMPLATE: gist (one breath) -->
+    <!-- TEMPLATE: gist (intro) -->
     <section id="gist">
-      <p class="gist">A 22K real-world pedestrian dataset for BLV navigation, built by having humans <em>verify</em> standards-grounded silver labels instead of writing from scratch — and a benchmark that shows today's MLLMs still struggle with the spatial half of the task.</p>
+      <p class="gist">Recent MLLMs open new possibilities for Blind and Low Vision (BLV) assistance, but the difficulty of accessibility-aware annotation has kept benchmarks small. We propose <strong>GuideDog</strong>, a 22K dataset of real-world egocentric walking scenes across 183 locations in 46 countries, with labels structured by three BLV guidance standards (S1/S2/S3) and a 2,106-example human-verified gold subset. We also provide <strong>GuideDog-QA</strong>, an 818-sample benchmark for fine-grained object recognition and depth perception. Today's MLLMs still struggle with the spatial half of the task, especially depth-heavy obstacle guidance.</p>
     </section>
 
     <!-- TEMPLATE: teaser figure (the task) -->
     <figure class="teaser medium">
       <img src="assets/teaser.png" alt="The accessibility-aware guidance task: an MLLM reads a pedestrian scene and produces an S1 description, S2 obstacle info, and S3 summary direction.">
-      <figcaption><strong>The task.</strong> Given a pedestrian image, an MLLM produces guidance in three parts: <em>S1</em> describe the surroundings, <em>S2</em> identify obstacles with location and proximity, <em>S3</em> summarize a safe direction.</figcaption>
+      <figcaption><strong>The task.</strong> Given an egocentric walking frame, an MLLM produces guidance in three parts: <em>S1</em> describe the surroundings, <em>S2</em> identify obstacles with location and proximity, <em>S3</em> summarize a safe direction.</figcaption>
     </figure>
 
     <!-- TEMPLATE: stats strip -->
@@ -158,16 +159,16 @@
       <h2>Three BLV guidance standards</h2>
       <p>Distilled from BLV organizations and prior research, then used as the scaffolding for every annotation in the dataset.</p>
       <div class="standards-box">
-        <p><span class="s">S1</span> Describe the surroundings — orient the user.</p>
-        <p><span class="s">S2</span> Provide obstacle information — type, location, proximity (e.g. <em>"12 o'clock, 4 steps"</em>).</p>
-        <p><span class="s">S3</span> Provide a summary and direction — concise, low cognitive load.</p>
+        <p><span class="s">S1</span> Describe the surroundings: orient the user.</p>
+        <p><span class="s">S2</span> Provide obstacle information: type, location, proximity (e.g. <em>"12 o'clock, 4 steps"</em>).</p>
+        <p><span class="s">S3</span> Provide a summary and direction: concise, low cognitive load.</p>
       </div>
     </section>
 
     <!-- TEMPLATE: pipeline figure -->
     <section id="pipeline">
-      <h2>Verify, don't generate</h2>
-      <p>The construction trick is to flip the human-AI pipeline: an MLLM produces standards-grounded <em>silver</em> labels first; trained annotators then verify and refine them into <em>gold</em>. Verification is much cheaper than free-form annotation, so BLV expertise concentrates where it adds the most value.</p>
+      <h2>Structured labels, then human verification</h2>
+      <p>GuideDog is built around three BLV guidance standards (S1/S2/S3). An MLLM first drafts <em>silver</em> labels structured by these standards, and trained annotators then verify and refine them into <em>gold</em> labels. This shifts human effort from free-form writing to checking accessibility-critical details, making large-scale annotation feasible while preserving the BLV-specific structure.</p>
       <figure class="wide">
         <img src="assets/pipeline.png" alt="Four-stage GuideDog pipeline: scene image collection, scene information extraction, silver label generation, and human verification into gold labels.">
         <figcaption><strong>Pipeline.</strong> Web-sourced walking videos → balanced frame sampling → standards-grounded silver labels → human verification.</figcaption>
@@ -196,11 +197,11 @@
     <section id="findings">
       <h2>What we found</h2>
       <div class="findings-box">
-        <p><strong>① GPT-4o leads zero-shot guidance,</strong> with the largest gap on <em>S2</em> — exactly where depth references matter most.</p>
+        <p><strong>① GPT-4o leads zero-shot guidance,</strong> with the largest gap on <em>S2</em>, exactly where depth references matter most.</p>
         <p><strong>② Open-source models recognize objects, proprietary models judge depth.</strong> On QA, several open-source MLLMs <em>cannot beat random chance</em> at depth comparison.</p>
-        <p><strong>③ Fine-tuning closes the gap.</strong> LoRA fine-tuning Qwen2.5-VL on our silver labels gives <strong>+19.3%</strong> on depth comparison while losing only <strong>−1.8%</strong> on object recognition — and tops every model on guidance generation.</p>
+        <p><strong>③ Fine-tuning closes the gap.</strong> LoRA fine-tuning Qwen2.5-VL on our silver labels gives <strong>+19.3%</strong> on depth comparison while losing only <strong>−1.8%</strong> on object recognition, and tops every model on guidance generation.</p>
       </div>
-      <p class="takeaway">Spatial understanding — not language — is the bottleneck for BLV-grade MLLM guidance.</p>
+      <p class="takeaway">Spatial grounding, especially depth and obstacle localization, remains the hard part for BLV-grade MLLM guidance.</p>
     </section>
 
     <!-- TEMPLATE: bibtex -->
