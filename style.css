@@ -55,7 +55,6 @@ h1 {
   font-weight: 600;
   line-height: 1.25;
   margin: 0 0 0.6rem;
-  text-wrap: balance;
 }
 
 h2 {
@@ -412,6 +411,8 @@ footer p {
   h1 {
     font-size: 1.5rem;
   }
+  /* on mobile, let the title wrap naturally */
+  .title-br { display: none; }
   h2 {
     font-size: 1.1rem;
     margin-top: 2.2rem;
