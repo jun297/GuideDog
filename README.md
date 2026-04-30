@@ -4,7 +4,8 @@
     <a href='https://junhyeok.kim/' target='_blank'>Junhyeok Kim</a>*&emsp;
     <a href='https://jerife.org/cv' target='_blank'>Jaewoo Park</a>*&ensp;
     Junhee Park&ensp;
-    Sangeyl Lee&ensp;
+    Sangeyl Lee
+    <br>
     <a href='https://jiwanchung.github.io/' target='_blank'>Jiwan Chung</a>&ensp;
     Jisung Kim&ensp;
     Ji Hoon Joung&ensp;
@@ -20,6 +21,8 @@
 <p align="center">
   <img src="assets/figure.png" alt="GuideDog overview">
 </p>
+
+> Recent MLLMs open new possibilities for Blind and Low Vision (BLV) assistance, but the difficulty of accessibility-aware annotation has kept benchmarks small. We propose **GuideDog**, a 22K dataset of real-world egocentric walking scenes across 183 locations in 46 countries, with labels structured by three BLV guidance standards (S1/S2/S3) and a 2,106-example human-verified gold subset. We also provide **GuideDogQA**, an 818-sample benchmark for fine-grained object recognition and depth perception. Today's MLLMs still struggle with the spatial half of the task, especially depth-heavy obstacle guidance.
 
 ## Overview
 
