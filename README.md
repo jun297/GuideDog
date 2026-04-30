@@ -1,18 +1,20 @@
 # GuideDog: A Real-World Egocentric Multimodal Dataset for Blind and Low-Vision Accessibility-Aware Guidance
 
 <p align="left">
-    <a href='https://junhyeok.kim/' target='_blank'>Junhyeok Kim</a>*&emsp;
-    <a href='https://jerife.org/cv' target='_blank'>Jaewoo Park</a>*&ensp;
-    Junhee Park&ensp;
-    Sangeyl Lee
+    <a href='https://junhyeok.kim/' target='_blank'>Junhyeok Kim</a><sup>♣*</sup>&emsp;
+    <a href='https://jerife.org/cv' target='_blank'>Jaewoo Park</a><sup>♣*</sup>&ensp;
+    Junhee Park<sup>♣</sup>&ensp;
+    Sangeyl Lee<sup>♣</sup>
     <br>
-    <a href='https://jiwanchung.github.io/' target='_blank'>Jiwan Chung</a>&ensp;
-    Jisung Kim&ensp;
-    Ji Hoon Joung&ensp;
-    Youngjae Yu
+    <a href='https://jiwanchung.github.io/' target='_blank'>Jiwan Chung</a><sup>♣</sup>&ensp;
+    Jisung Kim<sup>♢†</sup>&ensp;
+    Ji Hoon Joung<sup>♡†</sup>&ensp;
+    Youngjae Yu<sup>♠</sup>
 </p>
 
-<p align="left"><sub>* Equal contribution &nbsp;·&nbsp; ACL 2026 (Main)</sub></p>
+<p align="left"><sub><sup>♣</sup>Yonsei University &ensp; <sup>♢</sup>LG AI Research &ensp; <sup>♡</sup>Euler Robotics &ensp; <sup>♠</sup>Seoul National University</sub></p>
+
+<p align="left"><sub><sup>*</sup>Equal contribution &nbsp;·&nbsp; <sup>†</sup>Work done while at SK Telecom &nbsp;·&nbsp; ACL 2026 (Main)</sub></p>
 
 [![arXiv](https://img.shields.io/badge/arXiv-2503.12844-b31b1b.svg)](https://arxiv.org/abs/2503.12844)
 [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-kjunh/GuideDog-FFD21E)](https://huggingface.co/datasets/kjunh/GuideDog)
