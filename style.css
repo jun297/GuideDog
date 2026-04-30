@@ -102,7 +102,7 @@ a:hover {
 }
 
 .title-block .authors {
-  font-size: 1.08rem;
+  font-size: 1.18rem;
   color: #333;
   margin: 0.5rem 0 0.25rem;
   line-height: 1.55;
@@ -122,20 +122,20 @@ a:hover {
 }
 
 .title-block .affiliations {
-  font-size: 0.98rem;
+  font-size: 1.05rem;
   font-style: italic;
   color: var(--muted);
   margin: 0.3rem 0 0.2rem;
 }
 
 .title-block .note {
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   color: var(--muted);
   margin: 0 0 1rem;
 }
 
 .title-block .links {
-  font-size: 0.98rem;
+  font-size: 1.08rem;
   margin: 0;
 }
 
@@ -422,13 +422,13 @@ footer p {
     padding-left: 0.85rem;
   }
   .title-block .authors {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
   .title-block .affiliations {
-    font-size: 0.92rem;
+    font-size: 0.96rem;
   }
   .title-block .links {
-    font-size: 0.94rem;
+    font-size: 1rem;
   }
   .standards-box {
     padding: 0.75rem 0.9rem 0.5rem;
