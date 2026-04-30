@@ -52,7 +52,7 @@
 
     <!-- TEMPLATE: gist (intro) -->
     <section id="gist">
-      <p class="gist">Recent MLLMs open new possibilities for Blind and Low Vision (BLV) assistance, but the difficulty of accessibility-aware annotation has kept benchmarks small. We propose <strong>GuideDog</strong>, a 22K dataset of real-world egocentric walking scenes across 183 locations in 46 countries, with labels structured by three BLV guidance standards (S1/S2/S3) and a 2,106-example human-verified gold subset. We also provide <strong>GuideDog-QA</strong>, an 818-sample benchmark for fine-grained object recognition and depth perception. Today's MLLMs still struggle with the spatial half of the task, especially depth-heavy obstacle guidance.</p>
+      <p class="gist">Recent MLLMs open new possibilities for Blind and Low Vision (BLV) assistance, but the difficulty of accessibility-aware annotation has kept benchmarks small. We propose <strong>GuideDog</strong>, a 22K dataset of real-world egocentric walking scenes across 183 locations in 46 countries, with labels structured by three BLV guidance standards (S1/S2/S3) and a 2,106-example human-verified gold subset. We also provide <strong>GuideDogQA</strong>, an 818-sample benchmark for fine-grained object recognition and depth perception. Today's MLLMs still struggle with the spatial half of the task, especially depth-heavy obstacle guidance.</p>
     </section>
 
     <!-- TEMPLATE: teaser figure (the task) -->
@@ -195,11 +195,11 @@
 
     <!-- TEMPLATE: qa benchmark -->
     <section id="qa">
-      <h2>Probing perception: GuideDog-QA</h2>
-      <p>GuideDog-QA strips away the language overhead of guidance generation and tests two perceptual skills essential for BLV navigation: <em>object recognition</em> (which objects are truly in the scene) and <em>relative depth</em> (which is closer).</p>
+      <h2>Probing perception: GuideDogQA</h2>
+      <p>GuideDogQA strips away the language overhead of guidance generation and tests two perceptual skills essential for BLV navigation: <em>object recognition</em> (which objects are truly in the scene) and <em>relative depth</em> (which is closer).</p>
       <figure class="medium">
-        <img src="assets/qa_task.jpg" alt="GuideDog-QA tasks. Top: object recognition with four multiple-choice options; bottom: relative depth comparison between two bounding boxes.">
-        <figcaption><strong>GuideDog-QA.</strong> 435 <em>object</em> questions (which object is in the scene?) and 383 <em>depth</em> questions (which bounding box is closer?), all multiple-choice and drawn from the gold split.</figcaption>
+        <img src="assets/qa_task.jpg" alt="GuideDogQA tasks. Top: object recognition with four multiple-choice options; bottom: relative depth comparison between two bounding boxes.">
+        <figcaption><strong>GuideDogQA.</strong> 435 <em>object</em> questions (which object is in the scene?) and 383 <em>depth</em> questions (which bounding box is closer?), all multiple-choice and drawn from the gold split.</figcaption>
       </figure>
     </section>
 
