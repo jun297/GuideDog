@@ -57,6 +57,10 @@ h1 {
   margin: 0 0 0.6rem;
 }
 
+/* title-sp: zero-width on desktop, becomes a space on mobile when
+   .title-br is hidden, so word-joins don't get glued together */
+.title-sp { display: none; }
+
 h2 {
   font-size: 1.22rem;
   font-weight: 600;
@@ -137,6 +141,12 @@ a:hover {
 .title-block .links {
   font-size: 1.08rem;
   margin: 0;
+  /* word-spacing widens the gap around `·` separators for tap-target comfort */
+  word-spacing: 0.25em;
+}
+.title-block .links a {
+  /* a hair more vertical padding makes each link a comfortable tap target */
+  padding: 0.15em 0.05em;
 }
 
 /* gist — single sentence, set apart */
@@ -268,63 +278,50 @@ table.comparison tr.ours td {
   border-bottom-color: color-mix(in srgb, var(--link) 35%, var(--rule));
 }
 
-/* card layout below tablet — each row becomes a stacked block */
+/* sticky-first-column horizontal scroll on mobile (preserves comparison) */
 @media (max-width: 640px) {
-  table.comparison,
-  table.comparison thead,
-  table.comparison tbody,
-  table.comparison tr,
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* faded gradient on the right edge hints at scrollability */
+    -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%);
+            mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%);
+  }
+  table.comparison {
+    /* width: max-content lets the table overflow horizontally; min-width: 100% keeps short tables from shrinking */
+    width: max-content;
+    min-width: 100%;
+    /* separate borders avoid Safari artifacts on sticky cells */
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.85rem;
+  }
   table.comparison th,
   table.comparison td {
-    display: block;
-  }
-  table.comparison thead {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-  }
-  table.comparison tr {
-    border: 1px solid var(--rule);
-    border-radius: 3px;
-    padding: 0.55rem 0.85rem 0.7rem;
-    margin-bottom: 0.7rem;
-    background: var(--paper);
-  }
-  table.comparison tr.ours {
-    border-color: color-mix(in srgb, var(--link) 50%, var(--rule));
-    background: color-mix(in srgb, var(--link) 6%, transparent);
-  }
-  table.comparison td {
-    padding: 0.18rem 0;
-    border: 0;
-    font-size: 0.88rem;
-    display: flex;
-    gap: 0.7em;
-  }
-  table.comparison td::before {
-    content: attr(data-label);
-    flex: 0 0 7em;
-    color: var(--muted);
-    font-style: italic;
-    font-size: 0.78rem;
-    line-height: 1.6;
-  }
-  /* the dataset name gets its own emphasis as the card header */
-  table.comparison td:first-child {
-    font-weight: 600;
-    font-size: 1rem;
+    padding: 0.5rem 0.6rem;
+    white-space: nowrap;
     border-bottom: 1px solid var(--rule);
-    padding-bottom: 0.4rem;
-    margin-bottom: 0.4rem;
-    display: block;
   }
-  table.comparison td:first-child::before {
-    display: none;
+  table.comparison th {
+    border-bottom: 1px solid var(--ink);
+  }
+  /* sticky first column — dataset name stays anchored while attributes scroll */
+  table.comparison th:first-child,
+  table.comparison td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    width: 7.8rem;
+    max-width: 7.8rem;
+    white-space: normal;
+    background: var(--paper);
+    border-right: 1px solid var(--rule);
+  }
+  table.comparison th:first-child {
+    z-index: 2;
   }
   table.comparison tr.ours td:first-child {
-    border-bottom-color: color-mix(in srgb, var(--link) 35%, var(--rule));
+    background: color-mix(in srgb, var(--link) 6%, var(--paper));
   }
 }
 
@@ -413,6 +410,7 @@ footer p {
   }
   /* on mobile, let the title wrap naturally */
   .title-br { display: none; }
+  .title-sp { display: inline; }
   h2 {
     font-size: 1.1rem;
     margin-top: 2.2rem;
