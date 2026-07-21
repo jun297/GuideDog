@@ -132,6 +132,6 @@ Dual-licensed, matching the upstream `lmms-eval` convention:
 
 The dataset itself (`kjunh/GuideDog`) is released under **CC BY-NC 4.0** for non-commercial research use.
 
-## Acknowledgements
+## Acknowledgements 
 
 This evaluation pipeline is built on top of [`lmms-eval`](https://github.com/EvolvingLMMs-Lab/lmms-eval) by EvolvingLMMs-Lab. We thank the authors and contributors of that project.
